@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>496</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background:#0F0F0F;
+color:white;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>182</y>
+      <width>900</width>
+      <height>315</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QTabWidget::tab-bar{
+  alignment:left;
+background:#1B1B1B;
+}
+
+QTabBar::tab{
+width:0px;
+height:0px;
+margin-left:0px;
+border-top: 1px hidden #FF007F palette(mid);
+border-left:2px hidden #FF007F palette(mid);
+border-right: 1px hidden #FF007F palette(mid);
+border-bottom:0px;
+border-top-left-radius: 18px;
+border-top-right-radius: 18px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+   background-color:#525266;
+}
+
+QTabBar::tab:middle{
+margin-left:-5px;
+}
+QTabBar::tab:last{
+margin-left:-5px;
+}
+
+QTabWidget::pane {
+   background:#1B1B1B;
+   border-bottom:0px;
+}
+</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab1">
+     <property name="styleSheet">
+      <string notr="true">background:#1B1B1B;</string>
+     </property>
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QWidget" name="driverTournamentWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>900</width>
+        <height>315</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:white;
+QTableView::verticalHeader {
+    background:transparent;  /* Цвет фона вертикальной нумерации */
+    border-right: 1px solid white;  /* Граница справа */
+}</string>
+      </property>
+      <widget class="QLabel" name="winsTopLabel">
+       <property name="geometry">
+        <rect>
+         <x>772</x>
+         <y>0</y>
+         <width>128</width>
+         <height>49</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:20px;
+</string>
+       </property>
+       <property name="text">
+        <string>Wins</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="driverNameTopLabel">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>0</y>
+         <width>171</width>
+         <height>49</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:20px;
+</string>
+       </property>
+       <property name="text">
+        <string>Driver</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="constructorNameTopLabel">
+       <property name="geometry">
+        <rect>
+         <x>344</x>
+         <y>0</y>
+         <width>171</width>
+         <height>49</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:20px;
+</string>
+       </property>
+       <property name="text">
+        <string>Constructor</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="pointsTopLabel">
+       <property name="geometry">
+        <rect>
+         <x>601</x>
+         <y>0</y>
+         <width>171</width>
+         <height>49</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size:20px;
+</string>
+       </property>
+       <property name="text">
+        <string>Points</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="Line" name="line">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>50</y>
+         <width>900</width>
+         <height>1</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:#545353;</string>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tableViewDriverStanding">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>51</y>
+         <width>900</width>
+         <height>264</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTableView{
+font-size:20px;
+text-align:center;
+border:0px;
+}
+
+QTableView::horizontalHeader {
+    border-bottom: 1px solid white;  /* Граница снизу каждой секции вертикальной нумерации */
+}
+QScrollArea {background: transparent;}
+ QScrollBar:vertical {
+	border: none;
+    background: #0F0F0F;
+    width: 14px;
+    margin: 0 0 0 0;
+	border-radius: 7px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #C5C5C5;
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+		background-color: #EE0000;
+}
+QScrollBar::handle:vertical:pressed {	
+background-color: #A30202;
+
+}
+
+/* BTN TOP - SCROLLBAR*/
+QScrollBar::sub-line:vertical {
+	border: 1px hidden;
+	background-color: rgb(59, 59, 90);
+height:0px;/*15px*/
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+ 
+QScrollBar::sub-line:vertical:hover {	
+
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+height:0px;/*15*/
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+background: none;
+	
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+</string>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::NoSelection</enum>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderDefaultSectionSize">
+        <number>33</number>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab2">
+     <property name="styleSheet">
+      <string notr="true">background:#1B1B1B;</string>
+     </property>
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>31</x>
+        <y>0</y>
+        <width>869</width>
+        <height>48</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;border:0px;</string>
+      </property>
+      <property name="text">
+       <string comment="Search">Search</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="driverNameTopLabelDrivers">
+      <property name="geometry">
+       <rect>
+        <x>31</x>
+        <y>50</y>
+        <width>158</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Driver</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="NationTopLabelDrivers">
+      <property name="geometry">
+       <rect>
+        <x>687</x>
+        <y>50</y>
+        <width>171</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Nationality</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>900</width>
+        <height>1</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:#545353;</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="PermNumberTopLabelDrivers">
+      <property name="geometry">
+       <rect>
+        <x>338</x>
+        <y>50</y>
+        <width>244</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Permanent Number</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableDrivers">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>101</y>
+        <width>900</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView{
+font-size:20px;
+text-align:center;
+border:0px;
+margin-left:31px;
+}
+
+QTableView::horizontalHeader {
+    border-bottom: 1px solid white;  /* Граница снизу каждой секции вертикальной нумерации */
+}
+QScrollArea {background: transparent;}
+ QScrollBar:vertical {
+	border: none;
+    background: #0F0F0F;
+    width: 14px;
+    margin: 0 0 0 0;
+	border-radius: 7px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #C5C5C5;
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+		background-color: #EE0000;
+}
+QScrollBar::handle:vertical:pressed {	
+background-color: #A30202;
+
+}
+
+/* BTN TOP - SCROLLBAR*/
+QScrollBar::sub-line:vertical {
+	border: 1px hidden;
+	background-color: rgb(59, 59, 90);
+height:0px;/*15px*/
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+ 
+QScrollBar::sub-line:vertical:hover {	
+
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+height:0px;/*15*/
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+background: none;
+	
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::NoSelection</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>33</number>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab3">
+     <property name="styleSheet">
+      <string notr="true">background:#1B1B1B;</string>
+     </property>
+     <attribute name="title">
+      <string>Tab 3</string>
+     </attribute>
+     <widget class="QLabel" name="RoundTopLabelRace">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>92</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Round</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RaceNameTopLabelRace">
+      <property name="geometry">
+       <rect>
+        <x>92</x>
+        <y>0</y>
+        <width>303</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Race Name</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="RaceDateTopLebelRace">
+      <property name="geometry">
+       <rect>
+        <x>364</x>
+        <y>0</y>
+        <width>191</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Date</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="CircuitTopLebelRace">
+      <property name="geometry">
+       <rect>
+        <x>643</x>
+        <y>0</y>
+        <width>128</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size:20px;
+</string>
+      </property>
+      <property name="text">
+       <string>Circuit</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableRaces">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>51</y>
+        <width>900</width>
+        <height>264</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView{
+font-size:20px;
+text-align:center;
+border:0px;
+}
+
+QTableView::horizontalHeader {
+    border-bottom: 1px solid white;  /* Граница снизу каждой секции вертикальной нумерации */
+}
+QScrollArea {background: transparent;}
+ QScrollBar:vertical {
+	border: none;
+    background: #0F0F0F;
+    width: 14px;
+    margin: 0 0 0 0;
+	border-radius: 7px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #C5C5C5;
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+		background-color: #EE0000;
+}
+QScrollBar::handle:vertical:pressed {	
+background-color: #A30202;
+
+}
+
+/* BTN TOP - SCROLLBAR*/
+QScrollBar::sub-line:vertical {
+	border: 1px hidden;
+	background-color: rgb(59, 59, 90);
+height:0px;/*15px*/
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+ 
+QScrollBar::sub-line:vertical:hover {	
+
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+height:0px;/*15*/
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+background: none;
+	
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="tabKeyNavigation">
+       <bool>false</bool>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="dragDropOverwriteMode">
+       <bool>false</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::NoSelection</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderHighlightSections">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+     </widget>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>900</width>
+        <height>1</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:#545353;</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>24</x>
+      <y>116</y>
+      <width>268</width>
+      <height>47</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #A30202;border-radius: 8px;font-size:20px;</string>
+    </property>
+    <property name="text">
+     <string>Tournament table</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>316</x>
+      <y>116</y>
+      <width>268</width>
+      <height>47</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #232323;
+border: 4px solid #000000;
+border-radius: 8px;
+font-size:20px;
+</string>
+    </property>
+    <property name="text">
+     <string>Drivers</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>608</x>
+      <y>116</y>
+      <width>268</width>
+      <height>47</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: #232323;
+border: 4px solid #000000;
+border-radius: 8px;
+font-size:20px;</string>
+    </property>
+    <property name="text">
+     <string>Race</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>30</y>
+      <width>268</width>
+      <height>67</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/icons/f1icon.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="hide_button">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>0</y>
+      <width>71</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#hide_button{
+  background:transparent; border:1px hidden;font-size:25px;vertical-align: top;color:white;
+border-radius:24px; 
+ }
+ QPushButton#hide_button:pressed {
+     background-color: rgba(0,0,0,50);     
+ }
+ QPushButton#hide_button:hover:!pressed {
+      background-color: rgba(224, 255, 255,80);     
+ }</string>
+    </property>
+    <property name="text">
+     <string>–</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="close_button">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>0</y>
+      <width>72</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#close_button{
+  background:transparent; border:1px hidden;font-size:25px;vertical-align: top;color:white;
+border-radius:24px; 
+ }
+ QPushButton#close_button:pressed {
+     background-color: rgb(224, 0, 0);     
+ }
+ QPushButton#close_button:hover:!pressed {
+      background-color: rgba(224, 255, 255,80);     
+ }</string>
+    </property>
+    <property name="text">
+     <string>×</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>50</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSpinBox { background: transparent; color: white; font-size: 20px; }
+QSpinBox::up-button, QSpinBox::down-button { width: 20px; height: 10px; }
+</string>
+    </property>
+    <property name="minimum">
+     <number>1950</number>
+    </property>
+    <property name="maximum">
+     <number>2023</number>
+    </property>
+    <property name="value">
+     <number>2023</number>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
