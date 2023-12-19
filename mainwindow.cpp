@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableRaces->setColumnWidth(2,191);
     ui->tableRaces->setColumnWidth(3,323);
     ui->tableRaces->setItemDelegate(new DelegateRace(ui->tableRaces));
-    QObject::connect(ui->tableViewDriverStanding, &QTableView::pressed, this, &MainWindow::tableViewRacePressed);
+    QObject::connect(ui->tableRaces, &QTableView::pressed, this, &MainWindow::tableViewRacePressed);
     title=new Title_button(this);
     setTitleBar(title);
     QObject::connect(ui->hide_button,SIGNAL(clicked()),this,SLOT(showMinimized()));
@@ -72,8 +72,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     QSettings settings("conf.txt", QSettings::IniFormat);
-
-    // Сохранение данных
     settings.setValue("currentIndex", ui->tabWidget->currentIndex());
     settings.setValue("spinBoxValue", ui->spinBox->value());
     delete ui;

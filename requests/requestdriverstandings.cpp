@@ -3,7 +3,6 @@
 RequestDriverStandings::RequestDriverStandings(QObject *parent):QObject(parent)
 {
     QObject::connect(&m_WebCtrl, SIGNAL (finished(QNetworkReply*)),this, SLOT (fileDownloaded(QNetworkReply*)));
-    sendRequest(2023);
 }
 
 void RequestDriverStandings::sendRequest(int year)
